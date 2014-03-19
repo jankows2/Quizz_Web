@@ -67,6 +67,7 @@ GEM
     minitest (4.7.5)
     multi_json (1.9.0)
     multi_xml (0.5.5)
+    mysql2 (0.3.14)
     net-scp (1.1.2)
       net-ssh (>= 2.6.5)
     net-ssh (2.8.0)
@@ -145,6 +146,7 @@ DEPENDENCIES
   httparty
   jbuilder (~> 1.2)
   jquery-rails
+  mysql2
   nokogiri
   rabl
   rails (= 4.0.2)
