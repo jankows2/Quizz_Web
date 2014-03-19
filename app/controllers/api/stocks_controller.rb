@@ -20,6 +20,14 @@ module Api
       end
     end
 
+    def by_company
+      @stocks = Stock.where(
+          "company LIKE ?", "%#{params[:company]}%"
+      )
+
+      respond_with @stocks
+    end
+
     def show
       @stock = Stock.find(params[:id])
 
