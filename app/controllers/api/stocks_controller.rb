@@ -5,15 +5,19 @@ module Api
         @stocks = Stock.where(
             "company LIKE ?", "%#{params[:company]}%"
         )
+
+        respond_with @stocks
       elsif params[:price]
         @stocks = Stock.where(
             "price LIKE ?", "#{params[:price]}"
         )
+
+        respond_with @stocks
       else
         @stocks = Stock.all
-      end
 
-      respond_with @stocks
+        respond_with @stocks
+      end
     end
 
     def show
