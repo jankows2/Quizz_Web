@@ -39,19 +39,4 @@ results = []
   end
 end
 
-puts results
-
-HTTParty.post(BASE_API_URL + '/stocks.json',
-              body: {:average_values => {
-                  :average_diesel => total_diesel / total_valid_diesel_records,
-                  :average_petrol => total_petrol / total_valid_petrol_records,
-                  :average_oil => average_oil
-              }},
-              :options => {
-                  :headers => {
-                      :ContentType => 'application/json',
-                      :Accept => 'application/json'
-                  }
-              })
-
-#puts "Completed web scraping at #{Time.now}"
+puts "Completed web scraping at #{Time.now}"
