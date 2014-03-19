@@ -10,6 +10,7 @@ set :branch, 'master'
 set :repo_url, 'git@git.raven.com:krystian/ca4002-api.git'
 
 set :linked_files, %w{config/database.yml}
+set :linked_dirs, %w{tmp/pids tmp/sockets log}
 
 set :keep_releases, 5
 
