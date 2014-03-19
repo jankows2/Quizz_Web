@@ -1,0 +1,17 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  company: MyString
+  price: 1.5
+  change: 1.5
+  percent_change: 1.5
+  volume: 1.5
+  ytd_change: 1.5
+
+two:
+  company: MyString
+  price: 1.5
+  change: 1.5
+  percent_change: 1.5
+  volume: 1.5
+  ytd_change: 1.5
