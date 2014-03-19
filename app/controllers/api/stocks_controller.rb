@@ -1,7 +1,17 @@
 module Api
   class StocksController < ApplicationController
     def index
-      @stocks = Stock.all
+      if params[:company]
+        @stocks = Stock.where(
+            "company LIKE ?", "%#{params[:company]}%"
+        )
+      elsif params[:price]
+        @stocks = Stock.where(
+            "price LIKE ?", "#{params[:price]}"
+        )
+      else
+        @stocks = Stock.all
+      end
 
       respond_with @stocks
     end
