@@ -7,8 +7,6 @@ BASE_API_URL = 'http://stock.raven.com/api'
 #BASE_API_URL = 'http://localhost:3000/api'
 CNN_BASE_URL = 'http://money.cnn.com/data/markets/nasdaq/?page='
 
-results = []
-
 167.times do |index|
   if index != 0
     page = Nokogiri::HTML(open("#{CNN_BASE_URL}#{index}"))
