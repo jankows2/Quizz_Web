@@ -1,5 +1,13 @@
-<p>This is the partial for view 2.</p>
-<p>
-  Showing of 'interpolate' filter:
-  {{ 'Current version is v%VERSION%.' | interpolate }}
-</p>
+<navbar></navbar>
+<div class="container">
+    <div class="panel panel-default col-md-5 custom-panel ">
+        <div class="panel-heading">Enter index name for company</div>
+        <div class="panel-body">
+            <form ng-submit="getCompany()" name="form">
+                <h4>Make:</h4>
+                <input  type="text" class="form-control custom-margin" name="Company" placeholder="Company" ng-model="stock.company.name">
+                <button type="submit" class="btn btn-primary">Get</button>
+            </form>
+        </div>
+    </div>
+</div>
