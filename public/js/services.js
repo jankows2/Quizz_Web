@@ -5,7 +5,7 @@ angular.module('myApp.services', [])
             get: function (company,success) {
                 $http({
                     method: 'GET',
-                    url: '/api/stocks.json?company=' + company,
+                    url: '/api/stocks.json?company=FLWS',
                     headers: {
                         'Content-Type': 'application/json',
                         'Accept': 'application/json'
