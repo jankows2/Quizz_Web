@@ -7,7 +7,7 @@ set :tmp_dir, '/home/krystian/ca4002-api/tmp'
 
 set :scm, :git
 set :branch, 'master'
-set :repo_url, 'git@git.raven.com:krystian/ca4002-api.git'
+set :repo_url, 'git@github.com:jankowk2/Data-Mining.git'
 
 set :linked_files, %w{config/database.yml}
 set :linked_dirs, %w{tmp/pids tmp/sockets log}
