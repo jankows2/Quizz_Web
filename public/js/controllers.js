@@ -2,8 +2,8 @@
 
 /* Controllers */
 
-angular.module('myApp.controllers', []).
-  controller('MyCtrl1', ['stockService','$scope',function($scope,stockService) {
+angular.module('myApp.controllers', [])
+ .controller('MyCtrl1', ['$scope','stockService',function($scope,stockService) {
 
         $scope.name='Company';
 
@@ -12,13 +12,10 @@ angular.module('myApp.controllers', []).
 
 
 
-        $scope.getCompany = function () {
-            console.log('What')
-            var attributes = {
-                name : $scope.name
-            };
-            console.log(attributes);
-            stockService.get(attributes, function (data) {
+        $scope.getCompany = function (company) {
+
+            console.log(company);
+            stockService.get(company, function (data) {
                 console.log(data);
             })
 

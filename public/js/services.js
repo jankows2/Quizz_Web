@@ -2,10 +2,10 @@ angular.module('myApp.services', [])
 
     .factory('stockService', [ '$http', function($http) {
         return {
-            get: function (name,success) {
+            get: function (company,success) {
                 $http({
                     method: 'GET',
-                    url: '/api/stock.json',
+                    url: '/api/stocks.json?company=' + company,
                     headers: {
                         'Content-Type': 'application/json',
                         'Accept': 'application/json'
