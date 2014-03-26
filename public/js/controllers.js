@@ -7,11 +7,6 @@ angular.module('myApp.controllers', [])
 
         $scope.name='Company';
 
-       console.log('Hmmmmmm')
-
-
-
-
         $scope.getCompany = function (company) {
 
             console.log(company);
