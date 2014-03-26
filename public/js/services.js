@@ -1,22 +1,19 @@
 angular.module('myApp.services', [])
 
-    .factory('stockService', [ '$http', 'globalSettings', function($http, globalSettings) {
+    .factory('stockService', [ '$http', function($http) {
         return {
-            get: function(success, error) {
+            get: function (name,success) {
                 $http({
                     method: 'GET',
-                    url: globalSettings.api_base_url + '/v1/me',
+                    url: '/api/stock.json',
                     headers: {
-                        'Authorization': 'Bearer ' + localStorage.getItem('access_token'),
                         'Content-Type': 'application/json',
                         'Accept': 'application/json'
                     }
-                }).success(function(user){
-                    console.log('sucess', user);
-                    success(user);
-                }).error(function(data) {
-                    error(data)
-                    console.log(data);
+                }).success(function (data) {
+                    success(data);
+                }).error(function (data) {
+                    console.log('error' + data);
                 })
             }
         }

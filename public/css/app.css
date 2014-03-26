@@ -1,5 +1,8 @@
 /* app css stylesheet */
-
+body {
+    padding-bottom: 40px;
+    padding-top: 60px;
+}
 .menu {
   list-style: none;
   border-bottom: 0.1em solid black;

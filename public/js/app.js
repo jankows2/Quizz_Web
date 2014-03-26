@@ -11,5 +11,6 @@ angular.module('myApp', [
   'ui.bootstrap'
 ]).
 config(['$routeProvider', function($routeProvider) {
-        $routeProvider.when('/', {templateUrl: 'partials/partial2.html'});
+        $routeProvider.when('/', {templateUrl: 'partials/partial2.html', controller: 'MyCtrl1'});
+        $routeProvider.otherwise({redirectTo: '/'});
 }]);
