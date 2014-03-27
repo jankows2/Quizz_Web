@@ -5,12 +5,13 @@ require 'httparty'
 # TODO - Change this when deployed
 BASE_API_URL = 'http://stock.raven.com/api'
 #BASE_API_URL = 'http://localhost:3000/api'
-CNN_BASE_URL = 'http://money.cnn.com/data/markets/nasdaq/?page='
+CNN_BASE_URL = 'http://money.cnn.com/data/markets/nasdaq/?cnn_page='
+RSS_BASE_URL = 'http://rss.cnn.com/rss/cnn_tech.rss'
 
 167.times do |index|
   if index != 0
-    page = Nokogiri::HTML(open("#{CNN_BASE_URL}#{index}"))
-    table = page.xpath("//div[@class='wsod_dataTableBorder']/table[@class='wsod_dataTable wsod_dataTableBig']/tbody")
+    cnn_page = Nokogiri::HTML(open("#{CNN_BASE_URL}#{index}"))
+    table = cnn_page.xpath("//div[@class='wsod_dataTableBorder']/table[@class='wsod_dataTable wsod_dataTableBig']/tbody")
     rows = table.search('tr')[0..-1]
 
     rows.each do |row|
@@ -36,5 +37,25 @@ CNN_BASE_URL = 'http://money.cnn.com/data/markets/nasdaq/?page='
     end
   end
 end
+
+
+feed_page = Nokogiri::HTML(open(RSS_BASE_URL))
+feed_page.css('item').each do |data|
+  feed = {
+      :feed => {
+          :title => data.at("title").text
+      }
+  }
+
+  HTTParty.post(BASE_API_URL + '/feeds.json',
+                      body: feed,
+                      :options => {
+                          :headers => {
+                              :ContentType => 'application/json',
+                              :Accept => 'application/json'
+                          }
+                      })
+end
+
 
 puts "Completed web scraping at #{Time.now}"
