@@ -18,7 +18,7 @@ angular.module('myApp.controllers', [])
 
         $scope.getNews = function (news) {
             console.log(news);
-            stockService.get(news, function (data) {
+            stockService.getNews(news, function (data) {
                 console.log(data);
             })
 
