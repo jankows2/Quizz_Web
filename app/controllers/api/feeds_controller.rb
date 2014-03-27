@@ -1,8 +1,15 @@
 class Api::FeedsController < ApplicationController
   def index
-    @feeds = Feed.all
 
-    respond_with @feeds
+    if params[:title]
+      @feeds = Feed.where('title like ?', "%#{params[:title]}%")
+
+      respond_with @feeds
+    else
+      @feeds = Feed.all
+
+      respond_with @feeds
+    end
   end
 
   def show
