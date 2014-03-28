@@ -7,6 +7,8 @@ angular.module('myApp.controllers', [])
 
         $scope.name='Company';
 
+        $scope.newsList = [];
+
         $scope.getCompany = function (company) {
 
             console.log(company);
@@ -19,10 +21,13 @@ angular.module('myApp.controllers', [])
         $scope.getNews = function (news) {
             console.log(news);
             stockService.getNews(news, function (data) {
-                console.log(data);
+                angular.forEach(data, function (feeds) {
+                    angular.forEach(feeds, function(value) {
+                        $scope.newsList.push(value.feed)
+                        console.log(value.feed)
+                    })
+                });
             })
-
+            $scope.apply
         };
-
-
   }])

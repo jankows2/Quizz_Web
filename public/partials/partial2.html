@@ -24,4 +24,20 @@
         </div>
     </div>
 </div>
+<div class="container">
+    <div class="panel panel-default col-md-5 custom-panel">
+        <div class="panel-heading"><input placeholder="Filter data" ng-model="searchText"></div>
+        <table class="table table-hover">
+            <thead>
+            <tr>
+                <th>Title</th>
+                <th>{{newsList.id}}</th>
+            </tr>
+            </thead>
+            <tr ng-repeat="news in newsList | filter:searchText" >
+                <td> {{news.title}} </td>
+            </tr>
+        </table>
+    </div>
+</div>
 
