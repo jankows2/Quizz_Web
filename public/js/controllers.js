@@ -22,6 +22,7 @@ angular.module('myApp.controllers', [])
             console.log(news);
             stockService.getNews(news, function (data) {
                 angular.forEach(data, function (feeds) {
+                    $scope.newsList = [];
                     angular.forEach(feeds, function(value) {
                         $scope.newsList.push(value.feed)
                         console.log(value.feed)

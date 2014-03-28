@@ -2,11 +2,11 @@ module Api
   class StocksController < ApplicationController
     def index
       if params[:company]
-        @stocks = Stock.where('company like ?', "%#{params[:company]}%")
+        @stocks = Stock.where('company like ?', "%#{params[:company]}%").take(30)
 
         respond_with @stocks
       elsif params[:price]
-        @stocks = Stock.where('price like ?', "#{params[:price]}")
+        @stocks = Stock.where('price like ?', "#{params[:price]}").take(30)
 
         respond_with @stocks
       else
