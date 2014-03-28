@@ -11,11 +11,17 @@ angular.module('myApp.controllers', [])
 
         $scope.stockList = [];
 
-        $scope.totalPrice = [];
+        $scope.totalPrice = 0;
+
+        $scope.timeUp = 0;
+
+        $scope.timesDown=0;
 
         $scope.getCompany = function (company) {
             var total=0;
             var count = 1;
+            var up = 1;
+            var down = 1;
             stockService.get(company, function (data) {
                 console.log(data);
                 angular.forEach(data, function (stocks) {
@@ -26,9 +32,17 @@ angular.module('myApp.controllers', [])
                         console.log(stocks.stock)
                         total += stocks.stock.price;
                         count = count + 1;
+                        if(stocks.stock.percent_change >=0){
+                            up = up +1
+                        }
+                        else{
+                            down = down +1
+                        }
                     })
                 });
-                $scope.totalPrice.push((total/count).toFixed(2))
+                $scope.timeUp = up
+                $scope.timesDown = down
+                $scope.totalPrice = ((total/count).toFixed(2))
             })
             $scope.apply
 
