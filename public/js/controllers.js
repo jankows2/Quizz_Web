@@ -19,11 +19,12 @@ angular.module('myApp.controllers', [])
             stockService.get(company, function (data) {
                 console.log(data);
                 angular.forEach(data, function (stocks) {
+                    $scope.totalPrice = [];
                     $scope.stockList = [];
-                    angular.forEach(stocks, function(value) {
-                        $scope.stockList.push(value.stock)
-                        console.log(value.stock)
-                        total += value.stock.price;
+                    angular.forEach(stocks, function(stocks) {
+                        $scope.stockList.push(stocks.stock)
+                        console.log(stocks.stock)
+                        total += stocks.stock.price;
                         count = count + 1;
                     })
                 });
