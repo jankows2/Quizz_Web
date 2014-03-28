@@ -33,6 +33,7 @@
                 <th>Stock Name</th>
                 <th>Stock price</th>
                 <th>Stock change</th>
+                <th>Stock date</th>
 
             </tr>
             </thead>
@@ -40,6 +41,7 @@
                 <td> {{stocks.company}} </td>
                 <td> {{stocks.price}} </td>
                 <td>{{stocks.percent_change}}</td>
+                <td>{{stocks.created_at}}</td>
             </tr>
         </table>
     </div>
@@ -49,10 +51,12 @@
             <thead>
             <tr>
                 <th>Title</th>
+                <th>Date</th>
             </tr>
             </thead>
             <tr ng-repeat="news in newsList | filter:searchText" >
                 <td> {{news.title}} </td>
+                <td>{{news.created_at}}</td>
             </tr>
         </table>
     </div>
