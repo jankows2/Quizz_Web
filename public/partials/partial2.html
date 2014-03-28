@@ -36,7 +36,7 @@
 
             </tr>
             </thead>
-            <tr ng-repeat="stocks in stockList | filter:searchText" >
+            <tr ng-repeat="stocks in stockList | filter:searchText track by $index" >
                 <td> {{stocks.company}} </td>
                 <td> {{stocks.price}} </td>
                 <td>{{stocks.percent_change}}</td>
@@ -51,7 +51,7 @@
                 <th>Title</th>
             </tr>
             </thead>
-            <tr ng-repeat="news in newsList | filter:searchText" >
+            <tr ng-repeat="news in newsList | filter:searchText track by $index" >
                 <td> {{news.title}} </td>
             </tr>
         </table>
