@@ -17,6 +17,8 @@ angular.module('myApp.controllers', [])
 
         $scope.timesDown=0;
 
+        $scope.simpleClass = 0;
+
         $scope.getCompany = function (company) {
             var total=0;
             var count = 1;
@@ -42,7 +44,17 @@ angular.module('myApp.controllers', [])
                 });
                 $scope.timeUp = up
                 $scope.timesDown = down
+                $scope.simpleClass = ((up/30)*100).toFixed(2)
                 $scope.totalPrice = ((total/count).toFixed(2))
+            })
+            stockService.getNews(company, function (data) {
+                angular.forEach(data, function (feeds) {
+                    $scope.newsList = [];
+                    angular.forEach(feeds, function(value) {
+                        $scope.newsList.push(value.feed)
+                        console.log(value.feed)
+                    })
+                });
             })
             $scope.apply
 
