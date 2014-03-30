@@ -34,7 +34,7 @@ angular.module('myApp.controllers', [])
                 y2: {type: 'linear'}
             },
             series: [
-                        {y: 'value', color: 'steelblue', thickness: '2px', type: 'area', striped: true, label: 'Pouet'},
+                        {y: 'value', color: 'steelblue', thickness: '2px', striped: true, label: 'Price'},
                          {y: 'otherValue', axis: 'y2', color: 'lightsteelblue'}
                     ],
             lineMode: 'linear',
@@ -143,6 +143,8 @@ angular.module('myApp.controllers', [])
                 console.log('--------------------------------')
             })
 
+            $scope.result = upDown
+            $scope.apply
             console.log('Finale value of min is ' + min + 'Sgould the stock go up ? ' + upDown )
 
         }

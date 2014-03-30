@@ -10,7 +10,8 @@ angular.module('myApp', [
   'myApp.controllers',
   'ui.bootstrap',
   'n3-pie-chart',
-  'n3-charts.linechart'
+  'n3-charts.linechart',
+  'ngAnimate'
 ]).
 config(['$routeProvider', function($routeProvider) {
         $routeProvider.when('/', {templateUrl: 'partials/partial2.html', controller: 'MyCtrl1'});

@@ -37,55 +37,7 @@
             <p>{{100 - simpleClass}} % chances that the stock will go down</p>
         </div>
     </div>
-    <div class="panel panel-default col-md-5 custom-panel col-lg-offset-1">
-        <div class="panel-heading">Average price per stock</div>
-        <div class=" gauge">
-            <pie-chart data="gauge_data" options="options"></pie-chart>
-        </div>
-    </div>
-</div>
-<div class="container">
-    <div class="panel panel-default col-md-6 custom-panel">
-        <div class="panel-heading"><input placeholder="Filter data" ng-model="searchText"></div>
-        <table class="table table-hover">
-            <thead>
-            <tr>
-                <th>Stock Name</th>
-                <th>Stock price</th>
-                <th>Stock change</th>
-                <th>Stock volume</th>
-                <th>Stock ytd Change</th>
-                <th>Stock date</th>
-
-            </tr>
-            </thead>
-            <tr ng-repeat="stocks in stockList | filter:searchText track by $index" >
-                <td> {{stocks.company}} </td>
-                <td> {{stocks.price}} </td>
-                <td>{{stocks.percent_change}}</td>
-                <td>{{stocks.volume}}</td>
-                <td>{{stocks.ytd_change}}</td>
-                <td>{{stocks.created_at}}</td>
-
-            </tr>
-        </table>
-    </div>
-    <!--<div class="panel panel-default col-md-5 custom-panel col-lg-offset-1">-->
-        <!--<div class="panel-heading"><input placeholder="Filter data" ng-model="searchText"></div>-->
-        <!--<table class="table table-hover">-->
-            <!--<thead>-->
-            <!--<tr>-->
-                <!--<th>Title</th>-->
-                <!--<th>Date</th>-->
-            <!--</tr>-->
-            <!--</thead>-->
-            <!--<tr ng-repeat="news in newsList | filter:searchText" >-->
-                <!--<td> {{news.title}} </td>-->
-                <!--<td>{{news.created_at}}</td>-->
-            <!--</tr>-->
-        <!--</table>-->
-    <!--</div>-->
-    <div class="panel panel-default col-md-4 custom-panel col-md-offset-1">
+    <div class="panel panel-default col-md-5 custom-panel col-md-offset-1">
         <div class="panel-heading">Unseen classification k-nn </div>
         <div class="panel-body">
             <form ng-submit="getUnseen()" name="form">
@@ -99,18 +51,67 @@
             </form>
 
             <h4>K-NN algorithm result for unseen instance: </h4>
-            <p>{{result}}</p>
+            <p>Will the stock go up ? Value: {{result}}</p>
         </div>
     </div>
 </div>
 <div class="container">
     <div class="panel panel-default col-md-5 custom-panel">
-        <div class="panel-heading">Average price per stock</div>
+        <div class="panel-heading">Price of stock </div>
         <div class=" gauge">
             <linechart data="dataLine" options="optionsLine"></linechart>
         </div>
     </div>
+    <div class="panel panel-default col-md-5 custom-panel col-lg-offset-1">
+        <div class="panel-heading">Average price per stock</div>
+        <div class=" gauge">
+            <pie-chart data="gauge_data" options="options"></pie-chart>
+        </div>
+    </div>
 </div>
+<div class="container">
+    <div class="panel panel-default col-md-5 custom-panel">
+        <div class="panel-heading"><input placeholder="Filter data" ng-model="searchText"></div>
+        <table class="table table-hover">
+            <thead>
+            <tr>
+                <th>Stock Name</th>
+                <th>Stock price</th>
+                <th>Stock change</th>
+                <th>Stock volume</th>
+                <th>Stock ytd Change</th>
+                <th>Stock date</th>
+
+            </tr>
+            </thead>
+            <tr ng-repeat="stocks in stockList | filter:searchText track by $index" class="my-repeat-animation">
+                <td> {{stocks.company}} </td>
+                <td> {{stocks.price}} </td>
+                <td>{{stocks.percent_change}}</td>
+                <td>{{stocks.volume}}</td>
+                <td>{{stocks.ytd_change}}</td>
+                <td>{{stocks.created_at}}</td>
+
+            </tr>
+        </table>
+    </div>
+    <div class="panel panel-default col-md-5 custom-panel col-lg-offset-1">
+        <div class="panel-heading"><input placeholder="Filter data" ng-model="search"></div>
+        <table class="table table-hover">
+            <thead>
+            <tr>
+                <th>Title</th>
+                <th>Date</th>
+            </tr>
+            </thead>
+            <tr ng-repeat="news in newsList | filter:search" >
+                <td> {{news.title}} </td>
+                <td>{{news.created_at}}</td>
+            </tr>
+        </table>
+    </div>
+</div>
+
 
 
 
