@@ -25,6 +25,22 @@ angular.module('myApp.controllers', [])
 
         $scope.result = [];
 
+        $scope.dataLine = [];
+
+        $scope.optionsLine = {
+            axes: {
+                x: {key: 'x', labelFunction: function(value) {return value;}, type: 'linear', tooltipFormatter: function(x) {return x;}},
+                y: {type: 'linear'},
+                y2: {type: 'linear'}
+            },
+            series: [
+                        {y: 'value', color: 'steelblue', thickness: '2px', type: 'area', striped: true, label: 'Pouet'},
+                         {y: 'otherValue', axis: 'y2', color: 'lightsteelblue'}
+                    ],
+            lineMode: 'linear',
+            tension: 0.7
+        }
+
 
 
         $scope.getCompany = function (company) {
@@ -36,9 +52,11 @@ angular.module('myApp.controllers', [])
                 angular.forEach(data, function (stocks) {
                     $scope.totalPrice = [];
                     $scope.stockList = [];
+                    $scope.dataLine = [];
                     $scope.gauge_data = [];
-                    angular.forEach(stocks, function(stocks) {
+                    angular.forEach(stocks, function(stocks,index) {
                         $scope.stockList.push(stocks.stock)
+                        $scope.dataLine.push({x: index, value: stocks.stock.price })
                         total += stocks.stock.price;
                         count = count + 1;
                         if(stocks.stock.percent_change >=0){
@@ -85,12 +103,47 @@ angular.module('myApp.controllers', [])
             var price = $scope.unseen.price
             var volume = $scope.unseen.volume
             var ytd = $scope.unseen.ytd
-            var min = 0;
+            var min = 100000000;
             var upDown = true;
+            var tmp1 = 0;
+            var tmp2 = 0;
+            var tmp3 = 0
+            var sum = 0;
 
             angular.forEach($scope.stockList, function(data){
-                console.log(data.price)
+                tmp1 = ((data.price - price)*(data.price - price)).toFixed(0)
+                tmp2 = ((data.volume - volume)*(data.volume - volume)).toFixed(0)
+                tmp3 =  ((data.ytd_change - ytd)*(data.ytd_change - ytd)).toFixed(0)
+                sum = tmp1 + tmp2 + tmp3
+                sum = Math.sqrt(sum).toFixed(0)
+
+                console.log("sum befoer if " + sum)
+                console.log('Min before if ' + min)
+
+                if(min <= sum){
+                   min =min
+
+                }
+                else{
+                    min = sum
+                    console.log('New min is ' + min)
+                    console.log('Data change is ' + data.change)
+                    if(data.change < 0){
+                        upDown = false
+                        console.log('UPdown is ' + upDown)
+                    }
+                    else{
+                        upDown = true
+                        console.log('Updwon is  ' + upDown)
+                    }
+                }
+
+                sum = 0
+
+                console.log('--------------------------------')
             })
+
+            console.log('Finale value of min is ' + min + 'Sgould the stock go up ? ' + upDown )
 
         }
   }])
