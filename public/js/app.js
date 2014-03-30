@@ -8,7 +8,8 @@ angular.module('myApp', [
   'myApp.services',
   'myApp.directives',
   'myApp.controllers',
-  'ui.bootstrap'
+  'ui.bootstrap',
+  'n3-pie-chart'
 ]).
 config(['$routeProvider', function($routeProvider) {
         $routeProvider.when('/', {templateUrl: 'partials/partial2.html', controller: 'MyCtrl1'});
