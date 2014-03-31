@@ -26,8 +26,8 @@
     <div class="panel panel-default col-md-5 custom-panel ">
         <div class="panel-heading"> Analysis of Stock Data for {{stockList[1].company}}</div>
         <div class="panel-body">
-            <h4>Avreage price of stock:</h4>
-            <p>{{totalPrice}}</p>
+            <h4>Average price of stock:</h4>
+            <p>{{totalPrice}}$</p>
             <h4>Times the stock was up:</h4>
             <p>{{timeUp}}</p>
             <h4>Times the stock was down:</h4>
@@ -47,7 +47,7 @@
                 <input  type="text" class="form-control custom-margin" name="Surname" placeholder="volume" ng-model="unseen.volume" >
                 <h4>YTD change</h4>
                 <input  type="text" class="form-control custom-margin" name="Registration" placeholder="ytd" ng-model="unseen.ytd" >
-                <button type="submit" class="btn btn-primary">Update</button>
+                <button type="submit" class="btn btn-primary">Submit</button>
             </form>
 
             <h4>K-NN algorithm result for unseen instance: </h4>
@@ -63,7 +63,7 @@
         </div>
     </div>
     <div class="panel panel-default col-md-5 custom-panel col-lg-offset-1">
-        <div class="panel-heading">Average price per stock</div>
+        <div class="panel-heading">Chances of stock going up using simple calculation</div>
         <div class=" gauge">
             <pie-chart data="gauge_data" options="options"></pie-chart>
         </div>

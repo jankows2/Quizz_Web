@@ -72,7 +72,7 @@ angular.module('myApp.controllers', [])
                 $scope.simpleClass = ((up/30)*100).toFixed(2)
                 $scope.totalPrice = ((total/count).toFixed(2))
                 $scope.gauge_data.push(
-                    {label: "Price", value:(total/count).toFixed(2), color: "#5398f1", suffix: "$"}
+                    {label: "", value:((up/30)*100).toFixed(2), color: "#5398f1", suffix: "%"}
                 )
             })
             stockService.getNews(company, function (data) {
