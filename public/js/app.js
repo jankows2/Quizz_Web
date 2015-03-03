@@ -14,6 +14,6 @@ angular.module('myApp', [
   'ngAnimate'
 ]).
 config(['$routeProvider', function($routeProvider) {
-        $routeProvider.when('/', {templateUrl: 'partials/partial2.html', controller: 'MyCtrl1'});
+        $routeProvider.when('/car', {templateUrl: 'partials/partial2.html', controller: 'MyCtrl1'});
         $routeProvider.otherwise({redirectTo: '/'});
 }]);

@@ -4,9 +4,7 @@
     <data-source source="LOCAL" name="Rails CA4002: development" uuid="f79b92ee-6948-49cd-b263-e75cc3369ffd">
       <driver-ref>sqlite.xerial</driver-ref>
       <jdbc-driver>com.mysql.jdbc.Driver</jdbc-driver>
-      <jdbc-url>jdbc:mysql://127.0.0.1:8889/Stock</jdbc-url>
-      <user-name>root</user-name>
-      <user-password>dfd8dfc5dfc5dfde</user-password>
+      <jdbc-url>jdbc:sqlite:$PROJECT_DIR$/db/developemnt.sqlite3</jdbc-url>
       <libraries />
     </data-source>
     <data-source source="LOCAL" name="Rails CA4002: production" uuid="0b7e0b5d-dd65-4529-addd-faf6c35f50be">
@@ -17,4 +15,3 @@
     </data-source>
   </component>
 </project>
-

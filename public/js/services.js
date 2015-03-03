@@ -11,9 +11,10 @@ angular.module('myApp.services', [])
                         'Accept': 'application/json'
                     }
                 }).success(function (data) {
+                    console.log("success")
                     success(data);
                 }).error(function (data) {
-                    console.log('error' + data);
+                    console.log('error');
                 })
             },
 
@@ -28,7 +29,7 @@ angular.module('myApp.services', [])
                 }).success(function (data) {
                     success(data);
                 }).error(function (data) {
-                    console.log('error' + data);
+                    console.log('error' );
                 })
             }
         }

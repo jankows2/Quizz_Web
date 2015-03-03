@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="dataSourceStorageLocal">
+    <data-source name="Rails CA4002: development" uuid="f79b92ee-6948-49cd-b263-e75cc3369ffd">
+      <user-name>root</user-name>
+      <user-password>dfd8dfc5dfc5dfde</user-password>
+    </data-source>
+    <data-source name="Rails CA4002: production" uuid="0b7e0b5d-dd65-4529-addd-faf6c35f50be">
+      <secret-storage>memory</secret-storage>
+    </data-source>
+  </component>
+</project>
